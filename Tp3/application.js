@@ -7,9 +7,9 @@ const formulaire = document.querySelector("#inscription");
 const champnom=document.querySelector("#nom");
 const champemail=document.querySelector("#email");
 const champAge=document.querySelector("#age");
-const champatelier=document.querySelector("#atelier")
-const champreglement=document.querySelector("#reglement")
-
+const champatelier=document.querySelector("#atelier");
+const champreglement=document.querySelector("#reglement");
+const resultatt=document.querySelector("#resltat");
 
 
 
@@ -43,15 +43,61 @@ formulaire.addEventListener("submit", function (event) {
 
 // Étape 4 : vérifier chaque champ (nom, email, age, atelier, reglement)
 if (nom.length < 3) {
-afficherErreur(champNom, "#erreur-nom", "Au moins 3 caractères.");
-valide = false;
-} else {
-effacerErreur(champNom, "#erreur-nom");
+    
+    afficherErreur(champnom, "#erreur-nom", "Au moins 3 caractères.");
+    valide = false;
+}
+else {
+    
+
+    effacerErreur(champNom, "#erreur-nom");
 }
 if (!email.includes("@")||!email.includes(".")){
+
+    afficherErreur(champemail, "#erreur-email", "email non valide.");
+    valide=false;
     
 }
+else{
+    effacerErreur(champemail, "#erreur-email");
+}
+if(!Number.isInteger(age) || age < 17 || age> 30){
+    afficherErreur(champAge, "#erreur-Age", "Âge entier entre 17 et 30 ans..");
+    valide=false;
+
+
+}
+else{
+    effacerErreur(champAge, "#erreur-Age");
+}
+if(atelier == ""){
+    afficherErreur(champatelier, "#erreur-atelier", "Choisir un atelier.");
+    valide=false;
+
+
+}
+else{
+    effacerErreur(champatelier, "#erreur-atelier");
+}
+if(!champreglement.checked){
+    afficherErreur(champreglement, "#erreur-reglement", "Accepter le règlement..")
+    valide=false;
+
+}
+else{
+     effacerErreur(champreglement, "#erreur-reglement");
+}
+
+
 
 
   // Étape 5 : afficher le résultat ou le vider
+  if(valide==true){
+    resultatt.textContent='inscription terminer avec succées';
+    formulaire.reset()
+
+  }
+  else{
+    resultatt.textContent = ""
+  }
 
