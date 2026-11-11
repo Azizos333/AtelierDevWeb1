@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription — Club Robotique</title>
+  <link rel="stylesheet" href="application.css">
+  <script src="application.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Inscription au Club Robotique</h1>
+    <form id="inscription" novalidate>
+      <label for="nom">Nom et prénom</label>
+      <input type="text" id="nom">
+      <p class="erreur" id="erreur-nom"></p>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email">
+      <p class="erreur" id="erreur-email"></p>
+
+      <label for="age">Âge</label>
+      <input type="number" id="age">
+      <p class="erreur" id="erreur-age"></p>
+
+      <label for="atelier">Atelier</label>
+      <select id="atelier">
+        <option value="">-- Choisir --</option>
+        <option>Arduino</option>
+        <option>Impression 3D</option>
+        <option>Drones</option>
+      </select>
+      <p class="erreur" id="erreur-atelier"></p>
+
+      <label><input type="checkbox" id="reglement"> J'accepte le règlement du club</label>
+      <p class="erreur" id="erreur-reglement"></p>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+    <p id="resultat"></p>
+  </main>
+</body>
+</html>
